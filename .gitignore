@@ -20,3 +20,4 @@ tmp/
 log/*
 .DS_Store
 *.log
+vendor/ruby/
