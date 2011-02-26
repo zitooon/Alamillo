@@ -14,7 +14,10 @@ public/javascripts/all.js
 public/javascripts/all_back.js
 public/javascripts/all_login.js
 .ssh-agent
-public/stylesheets/*.css
+public/stylesheets/site/
+public/stylesheets/all.css
+public/stylesheets/all_back.css
+public/stylesheets/all_login.css
 public/images/pictures/
 tmp/
 log/*
