@@ -14,15 +14,20 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => 'requests', :action => 'index'
   end
 
-  map.root :controller => 'introduction', :action => 'show'
+  map.root :controller => 'contents', :action => 'introduction'
 
-  map.resource :accomodation, :controller => 'accomodation', :only => [:show], :member => {:blue_suite => :get, :tennis_house => :get, :main_house => :get} 
-  map.resource :facilities, :controller => 'facilities', :only => [:show], :member => {:meeting_room => :get, :garden => :get, :gym_spa => :get, :games_room => :get}
-
-  %w(introduction activities gastronomy contact estate services surroundings surrounding_area).each do |r|
+  %w(introduction activities gastronomy contact estate services surroundings surrounding_area accommodation).each do |r|
     map.send(r.to_sym, r, {:controller => 'contents', :action => r})
   end
   
+  {'accommodation' => %w(blue_suite tennis_house main_house), 'facilities' => %w(meeting_room garden gym_spa games_room)}.each do |k, v|
+    v.each do |r|
+      map.send("#{r}_#{k}".to_sym, "#{k}/#{r}", {:controller => 'contents', :action => r})
+    end
+  end
+  
+  map.facilities 'facilities/meeting_room', {:controller => 'contents', :action => 'meeting_room'}
+    
   map.resource :gallery, :controller => 'gallery', :only => [:show], :member => {:album => :get}
 
   # Sample of regular route:
