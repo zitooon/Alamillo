@@ -24,7 +24,7 @@ module MenuHelper
   def menu
     haml_tag :ul, :class => 'sf-menu sf-vertical' do
       [:introduction, :estate, :surroundings, :accomodation, :gastronomy, :facilities, :activities, :services, :surrounding_area].each do |link|
-        haml_tag :li, :id => "#{link}_menu", :class => "#{link} big #{session[:locale]}#{link.to_s == params[:controller] ? ' current' : ''}" do
+        haml_tag :li, :id => "#{link}_menu", :class => "#{link} big #{session[:locale]}#{[@sym_for_menu, params[:controller].to_sym].include?(link) ? ' current' : ''}" do
           haml_concat link_to('<em>'+t(link)+'</em>', send("#{link}_path"), :class => 'vertical_menu')
           sub_menu_for(link)
         end
@@ -36,7 +36,7 @@ module MenuHelper
   def footer_menu
     haml_tag :ul do
       [:gallery, :contact].each do |link|
-        haml_tag :li, :class => "#{link} #{session[:locale]}#{link.to_s == params[:controller] ? ' current' : ''}" do
+        haml_tag :li, :class => "#{link} #{session[:locale]}#{link.to_s == @sym_for_menu ? ' current' : ''}" do
           haml_concat link_to('<em>'+t(link)+'</em>', send("#{link}_path"), :class => 'horizontal_menu', :id => "#{link}_link")
         end
       end
