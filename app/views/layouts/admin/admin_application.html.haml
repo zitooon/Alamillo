@@ -12,10 +12,7 @@
   #container
     #content_container
       #header.admin
-        #front_menu_admin
-          = link_to 'Front', root_path
-          = '|'
-          = link_to 'Logout', login_path, :method => :delete
+        = render :partial => "shared/header"
         #admin_menu
           = 'Administration menu :'
           = link_to 'Requests', admin_requests_path
