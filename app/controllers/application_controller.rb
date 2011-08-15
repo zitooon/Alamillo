@@ -6,11 +6,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
     
   before_filter :set_locale 
+  before_filter :choose_site
   before_filter :log_invitation_info
   before_filter :is_logged
 
   private
 
+  def choose_site
+    if params[:referer] and params[:referer] == 'las7encinas'
+      cookies[:site] = { :value => 'www.elalamillo.com', :expires => 6.hours.from_now }     
+    end
+    redirect_to select_site_path if !cookies[:site] or cookies[:site] == 'las7encinas.elalamillo.com'
+  end
+  
   def is_logged
     redirect_to login_path unless logged?
   end

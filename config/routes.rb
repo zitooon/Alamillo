@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
   map.resource :login, :controller => 'login'
+  map.select_site 'select_site', :controller => 'login', :action => 'select_site'
   map.resources :requests
 
   # Sample resource route within a namespace:

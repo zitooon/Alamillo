@@ -1,0 +1,16 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title= 'Finca El Alamillo'
+    %meta{:name => "description", :content => "finca el alamillo"} 
+    %meta{:name => "keywords", :content => "finca el alamillo"}
+    %meta{:name => "revisit-after", :content => "10 days"}
+    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+    = stylesheet_link_tag 'site/select_site', :cache => 'all_select_site'
+    = javascript_include_tag 'jquery', 'jquery-ui', 'jrails', 'select_site', :cache => 'all_select_site'    
+  %body
+    #container
+      #content_container
+        = yield
+        .clear
+      .clear

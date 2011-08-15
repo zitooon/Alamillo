@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
 
-  skip_before_filter :is_logged
+  skip_before_filter :is_logged, :choose_site
   
   def show
     redirect_to introduction_path if logged?
@@ -29,6 +29,15 @@ class LoginController < ApplicationController
 
   def destroy
     logout
+  end
+  
+  def select_site
+    if params[:site]
+      cookies[:site] = { :value => params[:site], :expires => 6.hours.from_now }     
+      redirect_to 'http://'+cookies[:site]
+    else
+      render :action => :select_site, :layout => 'select_site'
+    end
   end
 
 end
