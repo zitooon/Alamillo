@@ -1,4 +1,5 @@
-source :gemcutter
+source 'https://rubygems.org'
+
 gem "rails", "2.3.18"
 gem 'haml'  
 gem 'will_paginate', '2.3.11'
