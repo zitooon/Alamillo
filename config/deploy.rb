@@ -11,7 +11,7 @@ set :application, "Alamillo"
 task :prod do
   set :type_server, "prod"
   set :servername, "5.135.166.174"
-  set :home, "/home/deploy/alamillo/www/"
+  set :home, "/home/deploy/alamillo/"
   server servername, :web, :app, :db
   role :app, servername
   role :web, servername

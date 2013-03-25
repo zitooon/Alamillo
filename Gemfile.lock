@@ -1,0 +1,56 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.18)
+      actionpack (= 2.3.18)
+    actionpack (2.3.18)
+      activesupport (= 2.3.18)
+      rack (~> 1.1.0)
+    activerecord (2.3.18)
+      activesupport (= 2.3.18)
+    activeresource (2.3.18)
+      activesupport (= 2.3.18)
+    activesupport (2.3.18)
+    capistrano (2.14.2)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    haml (3.0.25)
+    highline (1.6.16)
+    i18n (0.3.7)
+    mime-types (1.16)
+    mysql (2.8.1)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.6)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
+    rack (1.1.6)
+    rails (2.3.18)
+      actionmailer (= 2.3.18)
+      actionpack (= 2.3.18)
+      activerecord (= 2.3.18)
+      activeresource (= 2.3.18)
+      activesupport (= 2.3.18)
+      rake (>= 0.8.3)
+    rake (10.0.3)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
+    will_paginate (2.3.11)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  capistrano
+  haml
+  i18n (= 0.3.7)
+  mime-types
+  mysql
+  rails (= 2.3.18)
+  rvm-capistrano
+  will_paginate (= 2.3.11)

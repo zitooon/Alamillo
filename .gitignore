@@ -4,12 +4,8 @@ log/*.log
 tmp/logs/*
 tmp/sass-cache
 tmp/pids/*
-Gemfile.lock
 config/database.yml
-config/environments/production.rb
-config/environments/development.rb
 *~
-db/schema.rb
 public/javascripts/all.js
 public/javascripts/all_back.js
 public/javascripts/all_login.js
