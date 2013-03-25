@@ -17,8 +17,8 @@ task :prod do
   role :web, servername
   role :db,  servername, :primary => true
   set :deploy_to, home
-  set :runner, 'alamillo'
-  set :user, "alamillo"
+  set :runner, 'deploy'
+  set :user, "deploy"
   set :branch, "master"
   set :keep_releases, 4
   set :rails_env, 'production'
