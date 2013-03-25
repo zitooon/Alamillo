@@ -36,19 +36,6 @@ set :scm, "git"
 set :scm_user, "deploy"  # The server's user for deploys
 set :repository, "git@github.com:zitooon/Alamillo.git"
 
-# namespace :bundler do
-#   task :create_symlink, :roles => :app do
-#     shared_dir = File.join(shared_path, 'bundle')
-#     release_dir = File.join(current_release, '.bundle')
-#     run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
-#   end
-
-#   task :bundle_new_release, :roles => :app do
-#     bundler.create_symlink
-#     run "cd #{release_path} && /opt/ruby-enterprise/bin/bundle install --path  #{home}/#{shared_dir}/bundle --without test"
-#   end
-# end
-
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
@@ -60,6 +47,7 @@ namespace :deploy do
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/assets/pictures #{release_path}/public/images/pictures"
   end
 end
 
