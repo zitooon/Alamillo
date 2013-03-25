@@ -24,3 +24,4 @@ log/*
 .DS_Store
 *.log
 vendor/ruby/
+.rvmrc
