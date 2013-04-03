@@ -1,6 +1,3 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -16,7 +13,7 @@ class ApplicationController < ActionController::Base
     if params[:referer] and params[:referer] == 'las7encinas'
       cookies[:site] = { :value => 'www.elalamillo.com', :expires => 6.hours.from_now }     
     end
-    redirect_to select_site_path if !cookies[:site] or cookies[:site] == 'las7encinas.elalamillo.com'
+    redirect_to select_site_path if !cookies[:site] or cookies[:site] == 'www.las7encinas.com'
   end
   
   def is_logged
@@ -34,11 +31,11 @@ class ApplicationController < ActionController::Base
   def set_locale
     # Try to get the locale from the parameters, from the session, and then from the navigator
     if params[:locale]
-        I18n.locale = params[:locale]
+      I18n.locale = params[:locale]
     elsif session[:locale]
-        I18n.locale = session[:locale]
+      I18n.locale = session[:locale]
     else
-        I18n.locale = extract_locale_from_accept_language_header
+      I18n.locale = extract_locale_from_accept_language_header
     end
     session[:locale] = I18n.locale
   end
@@ -66,4 +63,5 @@ class ApplicationController < ActionController::Base
     session[:admin] = nil
     redirect_to introduction_path
   end
+
 end
