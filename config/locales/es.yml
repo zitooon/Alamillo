@@ -1,7 +1,7 @@
 es:
   locale_name: "Español"
   flag: "es.png"
-  back: "Espalda"
+  back: "Atras"
 
   ### LOGIN
   expired_code: "Lo sentimos, este código de entrada ha caducado."
