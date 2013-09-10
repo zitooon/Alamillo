@@ -1,3 +1,4 @@
+# encoding: utf-8
 class RequestsController < ApplicationController
   
   before_filter :is_logged, :only => [:show]

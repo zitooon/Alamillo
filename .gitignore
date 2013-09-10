@@ -21,3 +21,5 @@ log/*
 *.log
 vendor/ruby/
 .rvmrc
+.ruby-version
+.ruby-gemset

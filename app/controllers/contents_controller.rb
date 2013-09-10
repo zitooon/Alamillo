@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContentsController < ApplicationController
 
   Content.find(:all, :group => :symbol).each do |content|
