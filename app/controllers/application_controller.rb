@@ -11,10 +11,12 @@ class ApplicationController < ActionController::Base
   private
 
   def choose_site
-    if params[:referer] and params[:referer] == 'las7encinas'
-      cookies[:site] = { :value => 'www.elalamillo.com', :expires => 6.hours.from_now }     
+    unless Rails.env.development?
+      if params[:referer] and params[:referer] == 'las7encinas'
+        cookies[:site] = { :value => 'www.elalamillo.com', :expires => 6.hours.from_now }     
+      end
+      redirect_to select_site_path if !cookies[:site] or cookies[:site] == 'www.las7encinas.com'
     end
-    redirect_to select_site_path if !cookies[:site] or cookies[:site] == 'www.las7encinas.com'
   end
   
   def is_logged
